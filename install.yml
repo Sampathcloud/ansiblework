@@ -1,0 +1,18 @@
+--- # Example of register module
+- hosts: server
+  user: user1
+  sudo: yes
+  gather_facts: yes
+  vars:
+     - pkg: httpd
+  vars_prompt:
+     - name: pkg2
+       prompt: enter package name
+#   vars:{{vars}}
+  tasks:
+   - name: Install {{pkg}} server
+     yum: name={{pkg}} state=installed
+     yum: name={{pkg2}} state=installed
+   - name: verify the status
+     service: name={{pkg}} state=started
+     service: name={{pkg2}} state=started 

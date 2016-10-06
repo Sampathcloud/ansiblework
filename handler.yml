@@ -1,0 +1,12 @@
+--- # handlers
+- hosts: server
+  user: user1
+  sudo: yes
+  gather_facts: no
+  tasks:
+   - name: install httpd service
+     yum: pkg=httpd state=present
+     notify: restart the service
+  handlers:
+   - name: restart the service
+     action: service name=httpd state=restart
