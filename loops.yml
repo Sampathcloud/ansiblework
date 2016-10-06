@@ -1,13 +1,13 @@
 --- # loops for creating packages
-- hosts: server
-  user: user1
-  sudo: yes
-  gather_facts: yes
-  connection: ssh
-  tasks:
-   - name: installing packages
-     yum: name={{item}} state=installed
-     with_items:
-       - lynx
-       - curl
-       - wget
+#- hosts: agent.abc.com
+#  user: root
+#  sudo: yes
+#  gather_facts: yes
+#  connection: ssh
+#  tasks:
+- name: installing packages
+  yum: name={{item}} state=installed
+  with_items:
+    - lynx
+    - curl
+    - wget

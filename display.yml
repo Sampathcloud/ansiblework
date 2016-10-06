@@ -4,5 +4,6 @@
   tasks:
       - name: "{{inventory_hostname}}"
         debug: msg="{{inventory_hostname}}"
-#      - name: "{{ansible_hostname}}"
-            
+      - name: hostname "{{ansible_hostname}}"
+        debug: msg="{{ansible_hostname}}" 
+      - include: loops.yml  
