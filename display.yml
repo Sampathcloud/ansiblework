@@ -1,0 +1,8 @@
+--- # display host name in playbook
+- hosts: agent.abc.com
+  user: root
+  tasks:
+      - name: "{{inventory_hostname}}"
+        debug: msg="{{inventory_hostname}}"
+#      - name: "{{ansible_hostname}}"
+            
